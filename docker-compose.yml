@@ -1,0 +1,74 @@
+version: '3.9'
+
+services:
+  # minecraft server
+  mc:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      # rcon
+      ENABLE_RCON: true
+      RCON_PASSWORD: "1239"
+      # minecraft
+      TYPE: "PAPER"
+      VERSION: 1.20.1
+      EULA: "TRUE"
+      ONLINE_MODE: false
+      DIFFICULTY: "hard"
+      MOTD: "\u00A7f== \u00A77\u00A7mWelcome to\u00A7d ❤ т в о я м а м а . р ф ❤ \u00A77\u00A7mGoodbye\u00A77 \u00A7f==\u00A7r\\n\u00A7b\u00A7cПаркур \u00A75| \u00A74Админка \u00A75| \u00A7eАниме сервер \u00A75| \u00A7aХазяева \u00A75| \u00A7bТюряга"
+      ICON: "/icon/icon.png"
+      # server 
+      MEMORY: "4G"
+      SERVER_NAME: "твоямама.рф"
+      GUI: "FALSE"
+    volumes:
+      - ./data:/data
+      - ./icon:/icon
+      - ./plugins:/data/plugins
+
+  # rcon web ui
+  rcon:
+    image: itzg/rcon
+    ports:
+      - "4326:4326"
+      - "4327:4327"
+    environment:
+      # web auth data
+      - RWA_PASSWORD=gtddtg
+      # rcon connection data
+      - RWA_RCON_HOST=mc
+      - RWA_RCON_PASSWORD=1239
+    volumes:
+      - ./rcon-web-admin/db:/opt/rcon-web-admin/db
+
+  #metrics
+  mcmonitor:
+    image: itzg/mc-monitor
+    command: export-for-prometheus
+    environment:
+      EXPORT_SERVERS: mc
+      DEBUG: "true"
+    depends_on:
+      - mc
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./metrics/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./metrics/prometheus/db/prometheus:/prometheus
+    depends_on:
+      - mcmonitor
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./metrics/grafana/lib:/var/lib/grafana
+      - ./metrics/grafana/provisioning:/etc/grafana/provisioning
+      - ./metrics/grafana/dashboards:/etc/grafana/dashboards
+    depends_on:
+      - prometheus

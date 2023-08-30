@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: mc-monitor
+    static_configs:
+      - targets:
+          - mcmonitor:8080
