@@ -5,3 +5,4 @@ Updater
 
 # dynmap
 dynmap/*
+!dynmap/configuration.txt
