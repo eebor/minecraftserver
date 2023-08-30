@@ -5,9 +5,3 @@ Updater
 
 # dynmap
 dynmap/*
-!dynmap/configuration.txt
-!Dynmap-3.6-spigot.jar
-
-# # ultimate auto restart
-!UltimateAutoRestart/*
-!UltimateAutoRestart Build 54a.jar
