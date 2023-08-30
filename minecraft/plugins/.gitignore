@@ -1,8 +1,13 @@
-*
-!.gitignore
+# default
+bStats
+PluginMetrics
+Updater
+
 # dynmap
-!dynmap
+dynmap/*
+!dynmap/configuration.txt
 !Dynmap-3.6-spigot.jar
+
 # # ultimate auto restart
-!UltimateAutoRestart
+!UltimateAutoRestart/*
 !UltimateAutoRestart Build 54a.jar
