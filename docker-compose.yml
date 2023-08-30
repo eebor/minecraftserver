@@ -8,21 +8,20 @@ services:
     stdin_open: true
     ports:
       - "25565:25565"
-      - "8123:8123"
     environment:
       # rcon
       ENABLE_RCON: true
-      RCON_PASSWORD: "1239"
+      RCON_PASSWORD: "${RCON_PASSWORD}"
       # minecraft
       TYPE: "PAPER"
       VERSION: 1.20.1
       EULA: "TRUE"
       ONLINE_MODE: false
       DIFFICULTY: "hard"
-      MOTD: "\u00A7f== \u00A77\u00A7mWelcome to\u00A7d ❤ т в о я м а м а . р ф ❤ \u00A77\u00A7mGoodbye\u00A77 \u00A7f==\u00A7r\\n\u00A7b\u00A7cПаркур \u00A75| \u00A74Админка \u00A75| \u00A7eАниме сервер \u00A75| \u00A7aХазяева \u00A75| \u00A7bТюряга"
+      MOTD: ${MOTD}
       ICON: "/icon/icon.png"
       # server 
-      MEMORY: "4G"
+      MEMORY: ${MEMORY}
       SERVER_NAME: "твоямама.рф"
       GUI: "FALSE"
     volumes:
@@ -38,10 +37,10 @@ services:
       - "4327:4327"
     environment:
       # web auth data
-      - RWA_PASSWORD=gtddtg
+      - RWA_PASSWORD=${RCON_WEB_PASSWORD}
       # rcon connection data
       - RWA_RCON_HOST=mc
-      - RWA_RCON_PASSWORD=1239
+      - RWA_RCON_PASSWORD=${RCON_PASSWORD}
     volumes:
       - ./minecraft/rcon-web-admin/db:/opt/rcon-web-admin/db
 
@@ -73,6 +72,9 @@ services:
 
   grafana:
     image: grafana/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
     volumes:
       - ./metrics/grafana/lib:/var/lib/grafana
       - ./metrics/grafana/provisioning:/etc/grafana/provisioning
