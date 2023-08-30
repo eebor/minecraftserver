@@ -8,6 +8,7 @@ services:
     stdin_open: true
     ports:
       - "25565:25565"
+      - "8123:8123"
     environment:
       # rcon
       ENABLE_RCON: true
@@ -25,15 +26,15 @@ services:
       SERVER_NAME: "твоямама.рф"
       GUI: "FALSE"
     volumes:
-      - ./data:/data
-      - ./icon:/icon
-      - ./plugins:/data/plugins
+      - ./minecraft/data:/data
+      - ./minecraft/icon:/icon
+      - ./minecraft/plugins:/data/plugins
 
+  # depend
   # rcon web ui
   rcon:
     image: itzg/rcon
     ports:
-      - "4326:4326"
       - "4327:4327"
     environment:
       # web auth data
@@ -42,7 +43,7 @@ services:
       - RWA_RCON_HOST=mc
       - RWA_RCON_PASSWORD=1239
     volumes:
-      - ./rcon-web-admin/db:/opt/rcon-web-admin/db
+      - ./minecraft/rcon-web-admin/db:/opt/rcon-web-admin/db
 
   #metrics
   mcmonitor:
@@ -72,11 +73,21 @@ services:
 
   grafana:
     image: grafana/grafana
-    ports:
-      - "3000:3000"
     volumes:
       - ./metrics/grafana/lib:/var/lib/grafana
       - ./metrics/grafana/provisioning:/etc/grafana/provisioning
       - ./metrics/grafana/dashboards:/etc/grafana/dashboards
+      - ./metrics/grafana/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - prometheus
+  
+  nginx: 
+    image: nginx:latest
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - grafana
+      - mc
+      - rcon

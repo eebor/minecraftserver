@@ -1,4 +1,16 @@
-data/*
-rcon-web-admin/db/*
+# minecraft data
+!minecraft/data
+minecraft/data/*
+minecraft/rcon-web-admin/db/*
+
+# metrics
 metrics/grafana/lib/*
 metrics/prometheus/db/prometheus/*
+
+# plugins
+minecraft/plugins/PluginMetrics
+minecraft/plugins/bStats
+minecraft/plugins/Updater
+
+minecraft/plugins/dynmap/*
+!minecraft/plugins/dynmap/configuration.txt
