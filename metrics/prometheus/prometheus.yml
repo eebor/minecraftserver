@@ -5,3 +5,8 @@ scrape_configs:
     static_configs:
       - targets:
           - mcmonitor:8080
+          
+  - job_name: cadvisor
+    static_configs:
+      - targets: 
+          - cadvisor:8080
