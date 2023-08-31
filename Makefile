@@ -1,4 +1,5 @@
 .PHONY: env
 
 env:
-	cp ./envexample ./.env
+	cp -R -u -p envexample .env
+		
