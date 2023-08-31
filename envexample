@@ -1,6 +1,7 @@
 ### minecraft
 MEMORY=4G
 MOTD="\u00A7f== \u00A77\u00A7mWelcome to\u00A7d ❤ т в о я м а м а . р ф ❤ \u00A77\u00A7mGoodbye\u00A77 \u00A7f==\u00A7r\\n\u00A7b\u00A7cПаркур \u00A75| \u00A74Админка \u00A75| \u00A7eАниме сервер \u00A75| \u00A7aХазяева \u00A75| \u00A7bТюряга"
+
 ### rcon
 # password for rcon server
 RCON_PASSWORD=YOUR_PASSWORD
@@ -12,5 +13,4 @@ RCON_WEB_PASSWORD=YOUR_PASSWORD
 GRAFANA_PASSWORD=YOUR_PASSWORD
 
 ### nginx
-HOSTNAME=HOST_NAME
-USE_PROTOCOL=HTTP
+USE_PROTOCOL=http

@@ -110,6 +110,7 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/templates:/etc/nginx/templates
+      - ./nginx/locations:/etc/nginx/locations
       - ./static:/etc/nginx/html
     ports:
       - "80:80"
