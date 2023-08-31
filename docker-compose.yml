@@ -30,6 +30,7 @@ services:
       - ./minecraft/icon:/icon
       - ./minecraft/plugins:/data/plugins
     restart: always
+    user: root
 
   # depend
   # rcon web ui
@@ -45,6 +46,7 @@ services:
       - RWA_RCON_PASSWORD=${RCON_PASSWORD}
     volumes:
       - ./minecraft/rcon-web-admin/db:/opt/rcon-web-admin/db
+    user: root
 
   #metrics
   mcmonitor:
@@ -62,6 +64,7 @@ services:
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
+    user: root
 
   prometheus:
     image: prom/prometheus
@@ -71,6 +74,7 @@ services:
     depends_on:
       - mcmonitor
       - cadvisor
+    user: root
 
   grafana:
     image: grafana/grafana
@@ -84,8 +88,9 @@ services:
       - ./metrics/grafana/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - prometheus
-  
-  nginx: 
+    user: root
+
+  nginx:
     image: nginx:latest
     volumes:
       - ./nginx:/etc/nginx/conf.d:ro
@@ -97,3 +102,4 @@ services:
       - mc
       - rcon
     restart: always
+    user: root
