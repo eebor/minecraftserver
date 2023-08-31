@@ -68,6 +68,7 @@ services:
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    user: root
   # cadvisor:
   #   image: gcr.io/cadvisor/cadvisor
   #   volumes:
