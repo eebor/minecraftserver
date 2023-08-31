@@ -25,6 +25,8 @@ services:
       MEMORY: ${MEMORY}
       SERVER_NAME: "твоямама.рф"
       GUI: "FALSE"
+      # web console
+      WEB_CONSOLE_PASSWORD: ${WEB_CONSOLE_PASSWORD}
     volumes:
       - ./minecraft/data:/data
       - ./minecraft/icon:/icon
