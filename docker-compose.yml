@@ -8,6 +8,7 @@ services:
     stdin_open: true
     ports:
       - "25565:25565"
+      - "8080:8080"
     environment:
       # rcon
       ENABLE_RCON: true
@@ -88,6 +89,7 @@ services:
     image: nginx:latest
     volumes:
       - ./nginx:/etc/nginx/conf.d:ro
+      - ./static:/etc/nginx/html
     ports:
       - "80:80"
     depends_on:
