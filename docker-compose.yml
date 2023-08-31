@@ -57,14 +57,14 @@ services:
     depends_on:
       - mc
 
-  cadvisor:
-    image: gcr.io/cadvisor/cadvisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    user: root
+  # cadvisor:
+  #   image: gcr.io/cadvisor/cadvisor
+  #   volumes:
+  #     - /:/rootfs:ro
+  #     - /var/run:/var/run:rw
+  #     - /sys:/sys:ro
+  #     - /var/lib/docker/:/var/lib/docker:ro
+  #   user: root
 
   prometheus:
     image: prom/prometheus
@@ -73,7 +73,7 @@ services:
       - ./metrics/prometheus/db/prometheus:/prometheus
     depends_on:
       - mcmonitor
-      - cadvisor
+      # - cadvisor
     user: root
 
   grafana:
