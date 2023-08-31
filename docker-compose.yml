@@ -105,8 +105,11 @@ services:
 
   nginx:
     image: nginx:latest
+    environment:
+      - USE_PROTOCOL=${USE_PROTOCOL}
     volumes:
-      - ./nginx:/etc/nginx/conf.d:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/templates:/etc/nginx/templates
       - ./static:/etc/nginx/html
     ports:
       - "80:80"
