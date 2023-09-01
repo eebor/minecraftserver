@@ -15,7 +15,7 @@
 _version: 30
 anticheat:
   anti-xray:
-    enabled: false
+    enabled: true
     engine-mode: 1
     hidden-blocks:
     - copper_ore
@@ -56,21 +56,33 @@ chunks:
   auto-save-interval: default
   delay-chunk-unloads-by: 10s
   entity-per-chunk-save-limit:
-    arrow: -1
-    ender_pearl: -1
-    experience_orb: -1
-    fireball: -1
-    small_fireball: -1
-    snowball: -1
+    area_effect_cloud: 8
+    arrow: 16
+    dragon_fireball: 3
+    egg: 8
+    ender_pearl: 8
+    experience_bottle: 3
+    experience_orb: 16
+    eye_of_ender: 8
+    fireball: 8
+    firework_rocket: 8
+    llama_spit: 3
+    potion: 8
+    shulker_bullet: 8
+    small_fireball: 8
+    snowball: 8
+    spectral_arrow: 16
+    trident: 16
+    wither_skull: 4
   fixed-chunk-inhabited-time: -1
   flush-regions-on-save: false
   max-auto-save-chunks-per-tick: 24
-  prevent-moving-into-unloaded-chunks: false
+  prevent-moving-into-unloaded-chunks: true
 collisions:
   allow-player-cramming-damage: false
   allow-vehicle-collisions: true
   fix-climbing-bypassing-cramming-rule: false
-  max-entity-collisions: 8
+  max-entity-collisions: 2
   only-players-collide: false
 entities:
   armor-stands:
@@ -135,11 +147,11 @@ entities:
   spawning:
     all-chunks-are-slime-chunks: false
     alt-item-despawn-rate:
-      enabled: false
+      enabled: true
       items:
         cobblestone: 300
     count-all-mobs-for-spawning: false
-    creative-arrow-despawn-rate: default
+    creative-arrow-despawn-rate: '20'
     despawn-ranges:
       ambient:
         hard: 128
@@ -178,7 +190,7 @@ entities:
     - SleepingZ
     iron-golems-can-spawn-in-air: false
     monster-spawn-max-light-level: -1
-    non-player-arrow-despawn-rate: default
+    non-player-arrow-despawn-rate: '20'
     per-player-mob-spawns: true
     scan-for-legacy-ender-dragon: true
     skeleton-horse-thunder-spawn-chance: default
@@ -226,7 +238,7 @@ environment:
     enabled: true
   generate-flat-bedrock: false
   nether-ceiling-void-damage-height: disabled
-  optimize-explosions: false
+  optimize-explosions: true
   portal-create-radius: 16
   portal-search-radius: 128
   portal-search-vanilla-dimension-scaling: true
