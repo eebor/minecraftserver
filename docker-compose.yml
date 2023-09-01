@@ -9,6 +9,7 @@ services:
     ports:
       - "25565:25565"
       - "8080:8080"
+      - "24454:24454"
     environment:
       # rcon
       ENABLE_RCON: true
@@ -22,6 +23,8 @@ services:
       MOTD: ${MOTD}
       ICON: "/icon/icon.png"
       ALLOW_FLIGHT: true
+      VIEW_DISTANCE: ${VIEW_DISTANCE}
+      SIMULATION_DISTANCE: ${SIMULATION_DISTANCE}
       # server 
       MEMORY: ${MEMORY}
       SERVER_NAME: "твоямама.рф"
