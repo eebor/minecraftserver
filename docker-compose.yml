@@ -32,7 +32,6 @@ services:
     volumes:
       - ./minecraft/data:/data
       - ./minecraft/icon:/icon
-      - ./minecraft/plugins:/data/plugins
     restart: always
     user: "${UID}:${GID}"
 
