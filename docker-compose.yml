@@ -26,13 +26,12 @@ services:
       MEMORY: ${MEMORY}
       SERVER_NAME: "твоямама.рф"
       GUI: "FALSE"
-      
     volumes:
       - ./minecraft/data:/data
       - ./minecraft/icon:/icon
       - ./minecraft/plugins:/data/plugins
     restart: always
-    user: root
+    user: "${UID}:${GID}"
 
   # depend
   # rcon web ui
@@ -48,7 +47,7 @@ services:
       - RWA_RCON_PASSWORD=${RCON_PASSWORD}
     volumes:
       - ./minecraft/rcon-web-admin/db:/opt/rcon-web-admin/db
-    user: root
+    user: "${UID}:${GID}"
 
   #metrics
   mcmonitor:
@@ -70,7 +69,7 @@ services:
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
-    user: root
+    user: "${UID}:${GID}"
   # cadvisor:
   #   image: gcr.io/cadvisor/cadvisor
   #   volumes:
@@ -89,7 +88,7 @@ services:
       - mcmonitor
       - node-exporter
       # - cadvisor
-    user: root
+    user: "${UID}:${GID}"
 
   grafana:
     image: grafana/grafana
@@ -103,7 +102,7 @@ services:
       - ./metrics/grafana/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - prometheus
-    user: root
+    user: "${UID}:${GID}"
 
   nginx:
     image: nginx:latest
@@ -121,4 +120,4 @@ services:
       - mc
       - rcon
     restart: always
-    user: root
+    user: "${UID}:${GID}"
