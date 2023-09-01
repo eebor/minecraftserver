@@ -47,7 +47,7 @@ settings:
    # Note: Available days for day-specific commands -> [MONDAY], [TUESDAY], [WEDNESDAY], [THURSDAY], [FRIDAY], [SATURDAY], [SUNDAY]
    commandsAfterReboot:
    #- '[proxy:30] command to be executed via bungee 30 seconds after server startup'
-   - '[time:15] [WEDNESDAY] broadcast Its wednesday my dudes!'
+   - '[time:15] [WEDNESDAY] broadcast Среда сервер успешно перезагружен!'
    
    # Note: To restart twice on the same day, add another entry with the same day name but different time.
    # Note: Valid ranges -> Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday and 00;00 to 24;00.
@@ -90,7 +90,7 @@ settings:
    - '1'
    
    # Note: Instead of the interval, the below will show if the restart timer is not running!
-   unscheduledIntervalValue: '&f&lN/A'
+   unscheduledIntervalValue: '&f&lН/А'
 
 ##################################
 #                                #
@@ -113,15 +113,15 @@ delayRestart:
 
 # Note: Configure how the interval shows up!   
 format:
-   seconds: 's'
-   second: 's'
-   minutes: 'm '
-   minute: 'm '
-   hours: 'h '
-   hour: 'h '
-   days: 'D '
-   day: 'D '
-   splitter: 'and '
+   seconds: 'с'
+   second: 'с'
+   minutes: 'м '
+   minute: 'м '
+   hours: 'ч '
+   hour: 'ч '
+   days: 'Д '
+   day: 'Д '
+   splitter: 'и '
 
 ##################################
 #                                #
@@ -130,4 +130,4 @@ format:
 ################################## 
 
 updates:
-   notifications: true
+   notifications: false

@@ -40,8 +40,8 @@ messages:
       
    SERVER_RESTARTING:
       enabled: true
-      content: 'The server is currently restarting! Join back soon!'
+      content: 'Сервер перезагружается! Вернитесь поезже!'
       
    SERVER_BACK_UP:
       enabled: true
-      content: 'The server is back up! Join at play.servername.com!'
+      content: 'Сервер снова работает! Присоеденяйтесь play.servername.com!'

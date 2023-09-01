@@ -30,423 +30,428 @@
 
 # Note: Whether or not to strip colors from messages shown to console (to display issues with some panels).
 stripConsole: false
-
 messages:
 
    # Note: Use {PREFIX} &f» in any message to add the below prefix!
-   prefix: "<GRADIENT:9483FF>&lUltimateAutoRestart</GRADIENT:FB9AF2>&r"
-
-   EVENT_INTERVAL_GLOBAL:
+  prefix: <GRADIENT:9483FF>&lUltimateAutoRestart</GRADIENT:FB9AF2>&r
+  EVENT_INTERVAL_GLOBAL:
    # Placeholders: {0} = interval
    # Scope: Global
-      chatMessage:
-         enabled: false
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fRestarting in &d{0}&f!'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fRestarting in &d{0}&f!' 
-      titles:
-         enabled: true
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestarting in &d{0}&f!'
+    chatMessage:
+      enabled: false
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fПерезагрузка через &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: true
+      content: '{PREFIX} &f» &fПерезагрузка через &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fПерезагрузка через &d{0}&f!'
          
-   EVENT_INTERVAL_CONSOLE:
+  EVENT_INTERVAL_CONSOLE:
    # Placeholders: {0} = interval
    # Scope: Limited -> Console only
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - '{PREFIX} &f» &fRestarting in &d{0}&f!'
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - '{PREFIX} &f» &fПерезагрузка через &d{0}&f!'
          
-   EVENT_RESTART_GLOBAL:
+  EVENT_RESTART_GLOBAL:
    # Placeholders: None
    # Scope: Global
-      chatMessage:
-         enabled: false
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fRestarting... join back soon!'
-         - ''
-      actionbar:
-         enabled: true
-         content: '{PREFIX} &f» &fRestarting... join back soon!'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestarting... join back soon!'
+    chatMessage:
+      enabled: false
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fПерезагрузка...'
+      - ''
+    actionbar:
+      enabled: true
+      content: '{PREFIX} &f» &fПерезагрузка...'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fПерезагрузка...'
          
-   EVENT_RESTART_DELAY_GLOBAL:
+  EVENT_RESTART_DELAY_GLOBAL:
    # Placeholders: {0} = interval
    # Scope: Global
-      chatMessage:
-         enabled: false
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fThe restart has been delayed by &d{0}&f!'
-         - ''
-      actionbar:
-         enabled: true
-         content: '{PREFIX} &f» &fThe restart has been delayed by &d{0}&f!'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestart has been delayed by &d{0}&f!'
+    chatMessage:
+      enabled: false
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fПерезапуск был отложен на &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: true
+      content: '{PREFIX} &f» &fПерезапуск был отложен на &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fПерезапуск был отложен на &d{0}&f!'
          
-   EVENT_RESTART_DELAY_STAFF:
+  EVENT_RESTART_DELAY_STAFF:
    # Placeholders: {0} = interval
    # Scope: Limited -> uar.notifydelay
-      chatMessage:
-         enabled: false
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fThe restart has been delayed by &d{0}&f!'
-         - ''
-      actionbar:
-         enabled: true
-         content: '&c(Staff) {PREFIX} &f» &fThe restart has been delayed by &d{0}&f!'   
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestart has been delayed by &d{0}&f!'
+    chatMessage:
+      enabled: false
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fПерезапуск был отложен на &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: true
+      content: '&c(Staff) {PREFIX} &f» &fПерезапуск был отложен на &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fПерезапуск был отложен на &d{0}&f!'
 
    ############################### 
       
-   COMMAND_USER_VIEWINTERVAL:
+  COMMAND_USER_VIEWINTERVAL:
    # Placeholders: {0} = interval, {1} = time since last restart
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: true
-         content: 
-         - ''
-         - '{PREFIX} &f» &fRestarting in &d{0}&f!'
-         - '&7&o(Last restart happened {1} ago)'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fRestarting in &d{0}&f!'    
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestarting in &d{0}&f!'
+    chatMessage:
+      enabled: true
+      centered: true
+      content:
+      - ''
+      - '{PREFIX} &f» &fПерезапуск через &d{0}&f!'
+      - '&7&o(Последний перезапуск был {1} назад)'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fПерезапуск через &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fПерезапуск через &d{0}&f!'
          
    ###############################  
       
-   COMMAND_FORCE_RESTART:
+  COMMAND_FORCE_RESTART:
    # Placeholders: {0} = interval
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fForced the restart. Restarting in &d{0}&f!'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fForced the restart. &fRestarting in &d{0}&f!' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fForced the restart. Restarting in &d{0}&f!'
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fПринудительный перезапуск через &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fПринудительный перезапуск через &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fПринудительный перезапуск через &d{0}&f!'
          
-   COMMAND_FORCE_RESTART_GLOBAL:
+  COMMAND_FORCE_RESTART_GLOBAL:
    # Placeholders: {0} = interval, {1} = user that forced restart
    # Scope: Global
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f!' 
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f!' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestarting in &d{0}&f!'
-         
-   COMMAND_FORCE_RESTART_WITH_REASON:
-   # Placeholders: {0} = interval
+    chatMessage:
+      enabled: false
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &cАдминистратор: принудительный перезапуск через &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: true
+      content: '{PREFIX} &f» &cАдминистратор: принудительный перезапуск через &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fПерезапуск через &d{0}&f!'
+  COMMAND_FORCE_RESTART_WITH_REASON:
+   # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fForced the restart w/ reason. Restarting in &d{0}&f!'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fForced the restart w/ reason. &fRestarting in &d{0}&f!' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fForced the restart w/ reason. Restarting in &d{0}&f!'
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fForced the restart w/ reason. Restarting in &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fForced the restart w/ reason. &fRestarting in &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fForced the restart w/ reason. Restarting in &d{0}&f!'
          
-   COMMAND_FORCE_RESTART_GLOBAL_WITH_REASON:
-   # Placeholders: {0} = interval, {1} = user that forced restart, {2} = reason
-   # Scope: Global
-      chatMessage:
-         enabled: true
-         centered: true
-         content: 
-         - ''
-         - '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f!' 
-         - '&7&oReason:&r {2}' 
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f! &7&oReason:&r {2}' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestarting in &d{0}&f! &7&o(&r{2}&7&o)'         
-         
-   COMMAND_FORCE_RESTART_INVALID:
-   # Placeholders: {0} = input
+  COMMAND_FORCE_RESTART_GLOBAL_WITH_REASON:
+   # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - ' {PREFIX} &f» &fCould not force restart because your interval argument is faulty!'
-         - ''
-         - '  &dDetails:'
-         - '  &7• &dYour argument: &f{0}'
-         - '  &7• &dExpected argument: &fPositive Integer (e.g 60)'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fCould not force restart because your interval argument is faulty!'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fYour command is faulty!'
+    chatMessage:
+      enabled: true
+      centered: true
+      content:
+      - ''
+      - '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f!'
+      - '&7&oReason:&r {2}'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f! &7&oReason:&r
+        {2}'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fRestarting in &d{0}&f! &7&o(&r{2}&7&o)'
+         
+  COMMAND_FORCE_RESTART_INVALID:
+   # Placeholders: None
+   # Scope: User
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - ' {PREFIX} &f» &fНе удалось принудительно перезапустить, потому что ваш аргумент
+        интервала неисправен!'
+      - ''
+      - '  &dДетали:'
+      - '  &7• &dВаш аргумент: &f{0}'
+      - '  &7• &dОжидаемый агрумент: &fПоложительное число (например 60)'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fНе удалось принудительно перезапустить, потому что
+        ваш аргумент интервала неисправен!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fВаша команда неисправна!'
          
    ###############################   
       
-   COMMAND_DELAY_RESTART:
-   # Placeholders: {0} = interval
-   # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fDelayed the restart. Restarting in &d{0}&f!'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fDelayed the restart. &fRestarting in &d{0}&f!' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fDelayed a restart. Restarting in &d{0}&f!'
-         
-   COMMAND_DELAY_RESTART_GLOBAL:
-   # Placeholders: {0} = interval
-   # Scope: Global
-      chatMessage:
-         enabled: false
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &cAn admin delayed the restart. &fRestarting in &d{0}&f!' 
-         - ''
-      actionbar:
-         enabled: true
-         content: '{PREFIX} &f» &cAn admin delayed the restart. &fRestarting in &d{0}&f!' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRestarting in &d{0}&f!'
-         
-   COMMAND_DELAY_RESTART_INVALID:
-   # Placeholders: {0} = input
-   # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - ' {PREFIX} &f» &fCould not delay restart because your interval argument is faulty!'
-         - ''
-         - '  &dDetails:'
-         - '  &7• &dYour argument: &f{0}'
-         - '  &7• &dExpected argument: &fPositive Integer (e.g 60)'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fCould not delay restart because your interval argument is faulty!'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fYour command is faulty!'
-         
-   COMMAND_DELAY_RESTART_NOT_POSSIBLE:
+  COMMAND_DELAY_RESTART:
    # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - ' {PREFIX} &f» &fCould not delay restart because the restart is stopped!'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fCould not delay restart because the restart is stopped!'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fCould not delay restart!'         
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fОтложенный перезапуск. Перезапуск через &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fОтложенный перезапуск. Перезапуск через &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fОтложенный перезапуск через &d{0}&f!'
+         
+  COMMAND_DELAY_RESTART_GLOBAL:
+   # Placeholders: None
+   # Scope: User
+    chatMessage:
+      enabled: false
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &cАдминистратор: &fотложенный перезапуск через &d{0}&f!'
+      - ''
+    actionbar:
+      enabled: true
+      content: '{PREFIX} &f» &cАдминистратор: &fотложенный перезапуск через &d{0}&f!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fОтложенный перезапуск через &d{0}&f!'
+         
+  COMMAND_DELAY_RESTART_INVALID:
+   # Placeholders: None
+   # Scope: User
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - ' {PREFIX} &f» &fНе удалось принудительно перезапустить, потому что ваш аргумент
+        интервала неисправен!'
+      - ''
+      - '  &dДетали:'
+      - '  &7• &dВаш аргумент: &f{0}'
+      - '  &7• &dОжидаемый агрумент: &fПоложительное число (например 60)'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fНе удалось принудительно перезапустить, потому что
+        ваш аргумент интервала неисправен!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fВаша команда неисправна!'
+         
+  COMMAND_DELAY_RESTART_NOT_POSSIBLE:
+   # Placeholders: None
+   # Scope: User
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - ' {PREFIX} &f» &fНе удалось отложить перезапуск, потому что он остановлен!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fНе удалось отложить перезапуск, потому что он остановлен!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fНе удалось отложить перезапуск!'
          
    ###############################          
          
-   COMMAND_STOP_RESTART:
+  COMMAND_STOP_RESTART:
    # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fYou have cancelled the autorestart!'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fYou have cancelled the autorestart!' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fCancelled the autorestart!'
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fВы отменили автоматический перезапуск!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fВы отменили автоматический перезапуск!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fАвтоматический перезапуск отменен!'
          
-   COMMAND_STOP_RESTART_GLOBAL:
-   # Placeholders: None
-   # Scope: Global
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &cAn admin cancelled the autorestart!' 
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &cAn admin cancelled the autorestart!' 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fAn admin cancelled the restart!'
-         
-   COMMAND_STOP_RESTART_FAIL:
+  COMMAND_STOP_RESTART_GLOBAL:
    # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fCould not cancel autorestart, it was not running!'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fCould not cancel autorestart, it was not running!'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fNo scheduled restart running!'
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &cАдминистратор: &fавтоматический перезапуск отменен!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &cАдминистратор: &fавтоматический перезапуск отменен!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fАвтоматический перезапуск отменен администратором!'
+         
+  COMMAND_STOP_RESTART_FAIL:
+   # Placeholders: None
+   # Scope: User
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fНе удалось отменить автоматический перезапуск, он не был запущен!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fНе удалось отменить автоматический перезапуск, он не
+        был запущен!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fНету запланированных перезапусков!'
          
    ###############################  
    
-   COMMAND_DEBUG_SUCCESS:
-   # Placeholders: {0} = Debug Feature
+  COMMAND_DEBUG_SUCCESS:
+   # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - ' {PREFIX} &f» &fRunning debug for: &d&l{0}'
-         - ' &7(Make sure the feature is enabled when doing this!)'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fRunning debug for: &d&l{0}'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fRunning debug for: &d&l{0}'
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - ' {PREFIX} &f» &fЗапуск отладки для: &d&l{0}'
+      - ' &7(Убедитесь, что эта функция включена!)'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fЗапуск отладки для: &d&l{0}'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fЗапуск отладки для: &d&l{0}'
    
-   COMMAND_DEBUG_INVALID:
-   # Placeholders: {0} = Argument
+  COMMAND_DEBUG_INVALID:
+   # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - ' {PREFIX} &f» &fCould not use debug command! Missing/Invalid argument!'
-         - ''
-         - '  &dDetails:'
-         - '  &7• &dYour argument: &f{0}'
-         - '  &7• &dExpected argument: &fWebhook'
-         - ''
-      actionbar:
-         enabled: false
-         content: '{PREFIX} &f» &fCould not use debug command! Missing/Invalid argument!'
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fCould not use debug command! Missing/Invalid argument!'   
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - ' {PREFIX} &f» &fНе удалось использовать команду отладки! Отсутствующий/Недопустимый
+        аргумент!'
+      - ''
+      - '  &dДетали:'
+      - '  &7• &dВаш аргумент: &f{0}'
+      - '  &7• &dОжидаемый аргумент: &fВеб-хук'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fНе удалось использовать команду отладки! Отсутствующий/Недопустимый
+        аргумент!!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fНе удалось использовать команду отладки! Отсутствующий/Недопустимый
+        аргумент!'
          
    ###############################
            
-   COMMAND_RELOAD:
-   # Placeholders: {0} = ms
-   # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ""
-         - "{PREFIX} &f» &fReloaded configuration files. &7(&f{0}ms&7)"
-         - ""
-      actionbar:
-         enabled: false
-         content: "{PREFIX} &f» &fReloaded configuration files. &7(&f{0}ms&7)" 
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fReloaded configuration!'
-         
-   COMMAND_NOPERMISSION:
+  COMMAND_RELOAD:
    # Placeholders: None
    # Scope: User
-      chatMessage:
-         enabled: true
-         centered: false
-         content: 
-         - ''
-         - '{PREFIX} &f» &fYou do not have permission to run this command!'
-         - ''
-      actionbar:
-         enabled: false
-         content: "{PREFIX} &f» &fYou do not have permission to run this command!"       
-      titles:
-         enabled: false
-         titleContent: '{PREFIX}' 
-         subtitleContent: '&fYou do not have permission!'   
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fКонфигурационные файлы перегруженны. &7(&f{0}ms&7)'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fКонфигурационные файлы перегруженны. &7(&f{0}ms&7)'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fКонфигурация перегруженна!'
          
+  COMMAND_NOPERMISSION:
+   # Placeholders: None
+   # Scope: User
+    chatMessage:
+      enabled: true
+      centered: false
+      content:
+      - ''
+      - '{PREFIX} &f» &fУ вас нет разрешения на запуск этой команды!'
+      - ''
+    actionbar:
+      enabled: false
+      content: '{PREFIX} &f» &fУ вас нет разрешения на запуск этой команды!'
+    titles:
+      enabled: false
+      titleContent: '{PREFIX}'
+      subtitleContent: '&fУ вас нет разрешения!'
