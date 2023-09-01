@@ -23,3 +23,6 @@ Essentials/*
 !Essentials/kits.yml
 !Essentials/messages_my.properties
 !Essentials/motd.txt
+
+# FastChunkPregenerator
+FastChunkPregenerator/loaded
