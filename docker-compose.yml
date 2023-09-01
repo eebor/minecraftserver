@@ -120,4 +120,3 @@ services:
       - mc
       - rcon
     restart: always
-    user: "${UID}:${GID}"
