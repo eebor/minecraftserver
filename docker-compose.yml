@@ -7,9 +7,9 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "25565:25565"
-      - "8080:8080"
-      - "24454:24454"
+      - "25565:25565" # minecraft
+      - "8080:8080" # webconsole
+      - "24454:24454/udp" # voicechat
     environment:
       # rcon
       ENABLE_RCON: true
