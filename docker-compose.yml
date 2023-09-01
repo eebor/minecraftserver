@@ -21,10 +21,12 @@ services:
       DIFFICULTY: "hard"
       MOTD: ${MOTD}
       ICON: "/icon/icon.png"
+      ALLOW_FLIGHT: true
       # server 
       MEMORY: ${MEMORY}
       SERVER_NAME: "твоямама.рф"
       GUI: "FALSE"
+      
     volumes:
       - ./minecraft/data:/data
       - ./minecraft/icon:/icon

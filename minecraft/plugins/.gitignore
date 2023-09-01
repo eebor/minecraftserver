@@ -6,3 +6,20 @@ Updater
 # dynmap
 dynmap/*
 !dynmap/configuration.txt
+
+# NexAuth
+NexAuth/data.db
+NexAuth/location
+
+# LuckPerms
+LuckPerms/*
+!LuckPerms/config.yml
+!LuckPerms/*.perms.json.gz
+
+# Essentials
+Essentials/*
+!Essentials/config.yml
+!Essentials/custom_items.yml
+!Essentials/kits.yml
+!Essentials/messages_my.properties
+!Essentials/motd.txt
