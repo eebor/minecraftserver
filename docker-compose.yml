@@ -7,42 +7,49 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "25565:25565"
+      - "25565:25565" # minecraft
+      - "8080:8080" # webconsole
+      - "24454:24454/udp" # voicechat
     environment:
       # rcon
       ENABLE_RCON: true
-      RCON_PASSWORD: "1239"
+      RCON_PASSWORD: "${RCON_PASSWORD}"
       # minecraft
       TYPE: "PAPER"
       VERSION: 1.20.1
       EULA: "TRUE"
       ONLINE_MODE: false
       DIFFICULTY: "hard"
-      MOTD: "\u00A7f== \u00A77\u00A7mWelcome to\u00A7d ❤ т в о я м а м а . р ф ❤ \u00A77\u00A7mGoodbye\u00A77 \u00A7f==\u00A7r\\n\u00A7b\u00A7cПаркур \u00A75| \u00A74Админка \u00A75| \u00A7eАниме сервер \u00A75| \u00A7aХазяева \u00A75| \u00A7bТюряга"
+      MOTD: ${MOTD}
       ICON: "/icon/icon.png"
+      ALLOW_FLIGHT: true
+      VIEW_DISTANCE: ${VIEW_DISTANCE}
+      SIMULATION_DISTANCE: ${SIMULATION_DISTANCE}
       # server 
-      MEMORY: "4G"
+      MEMORY: ${MEMORY}
       SERVER_NAME: "твоямама.рф"
       GUI: "FALSE"
     volumes:
-      - ./data:/data
-      - ./icon:/icon
-      - ./plugins:/data/plugins
+      - ./minecraft/data:/data
+      - ./minecraft/icon:/icon
+    restart: always
+    user: "${UID}:${GID}"
 
+  # depend
   # rcon web ui
   rcon:
     image: itzg/rcon
     ports:
-      - "4326:4326"
       - "4327:4327"
     environment:
       # web auth data
-      - RWA_PASSWORD=gtddtg
+      - RWA_PASSWORD=${RCON_WEB_PASSWORD}
       # rcon connection data
       - RWA_RCON_HOST=mc
-      - RWA_RCON_PASSWORD=1239
+      - RWA_RCON_PASSWORD=${RCON_PASSWORD}
     volumes:
-      - ./rcon-web-admin/db:/opt/rcon-web-admin/db
+      - ./minecraft/rcon-web-admin/db:/opt/rcon-web-admin/db
+    user: "${UID}:${GID}"
 
   #metrics
   mcmonitor:
@@ -50,9 +57,29 @@ services:
     command: export-for-prometheus
     environment:
       EXPORT_SERVERS: mc
-      DEBUG: "true"
     depends_on:
       - mc
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    user: "${UID}:${GID}"
+  # cadvisor:
+  #   image: gcr.io/cadvisor/cadvisor
+  #   volumes:
+  #     - /:/rootfs:ro
+  #     - /var/run:/var/run:rw
+  #     - /sys:/sys:ro
+  #     - /var/lib/docker/:/var/lib/docker:ro
+  #   user: root
 
   prometheus:
     image: prom/prometheus
@@ -61,14 +88,37 @@ services:
       - ./metrics/prometheus/db/prometheus:/prometheus
     depends_on:
       - mcmonitor
+      - node-exporter
+      # - cadvisor
+    user: "${UID}:${GID}"
 
   grafana:
     image: grafana/grafana
-    ports:
-      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
     volumes:
       - ./metrics/grafana/lib:/var/lib/grafana
       - ./metrics/grafana/provisioning:/etc/grafana/provisioning
       - ./metrics/grafana/dashboards:/etc/grafana/dashboards
+      - ./metrics/grafana/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - prometheus
+    user: "${UID}:${GID}"
+
+  nginx:
+    image: nginx:latest
+    environment:
+      - USE_PROTOCOL=${USE_PROTOCOL}
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/templates:/etc/nginx/templates
+      - ./nginx/locations:/etc/nginx/locations
+      - ./static:/etc/nginx/html
+    ports:
+      - "80:80"
+    depends_on:
+      - grafana
+      - mc
+      - rcon
+    restart: always

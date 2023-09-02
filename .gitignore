@@ -1,4 +1,1 @@
-data/*
-rcon-web-admin/db/*
-metrics/grafana/lib/*
-metrics/prometheus/db/*
+*.env
