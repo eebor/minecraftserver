@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash ../start
+bash ../start-finalExec
