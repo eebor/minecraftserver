@@ -52,7 +52,7 @@ General:
   # No real chat messages will be sent!
   Use_Chat: true
   # Sets how many accounts player can register for the same IP address.
-  Accounts_Per_IP: 2
+  Accounts_Per_IP: 6
   # A list of command names that will be registered and used as login commands.
   # You can set this to an empty list to disable login commands (make sure to allow chat usage then).
   Login_Commands:
