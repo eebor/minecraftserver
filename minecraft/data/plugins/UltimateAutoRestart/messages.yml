@@ -33,7 +33,7 @@ stripConsole: false
 messages:
 
    # Note: Use {PREFIX} &f» in any message to add the below prefix!
-  prefix: <GRADIENT:9483FF>&lUltimateAutoRestart</GRADIENT:FB9AF2>&r
+  prefix: <GRADIENT:9483FF>&lРестарт</GRADIENT:FB9AF2>&r
   EVENT_INTERVAL_GLOBAL:
    # Placeholders: {0} = interval
    # Scope: Global
